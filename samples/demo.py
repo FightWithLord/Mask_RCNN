@@ -86,12 +86,12 @@ def h_forpng1(img_src, img_mask):
     return img_ret
 
 
-path = ""
+path = "../1/"
 for idx, file in enumerate(os.listdir(path)):
     # Load a random image from the images folder
     # file_names = next(os.walk(IMAGE_DIR))[2]
     # image = skimage.io.imread(os.path.join(IMAGE_DIR, random.choice(file_names)))
-    image = skimage.io.imread(file)
+    image = skimage.io.imread(path + file)
     image = image[:, :, :3]
 
     # Run detection
@@ -108,5 +108,5 @@ for idx, file in enumerate(os.listdir(path)):
     img_ret = h_forpng1(image, r['masks'])
     # img_ret = img_ret[:, :, ::-1]
     # img_ret = cv2.cvtColor(img_ret, cv2.COLOR_RGB2BGR)
-    cv2.imwrite("./img1/%04d.png" % idx, img_ret)
+    cv2.imwrite("./out1/%04d.png" % idx, img_ret)
     # skimage.io.imsave("./1.png", img_ret)
