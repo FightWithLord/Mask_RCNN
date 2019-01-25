@@ -74,9 +74,10 @@ class_names = ['BG', 'person', 'bicycle', 'car', 'motorcycle', 'airplane',
 def h_forpng1(img_src, img_mask):
     # img_mask = np.zeros_like(img_back)
     # img_mask = img_back[:, :, :3]
-    print(img_src.shape)
+    # print(img_src.shape)
     img_src = np.concatenate((img_src, 255 * np.ones((img_src.shape[0], img_src.shape[1], 1))), axis=2)
-    print(img_src.shape)
+    # print(img_src.shape)
+    print(img_mask.shape)
     img_mask = img_mask.reshape((img_mask.shape[0], img_mask.shape[1], 1))
     img_mask_stack = np.concatenate((img_mask, img_mask, img_mask, img_mask), axis=2)
     img_back_zero = img_src.copy()
@@ -86,7 +87,8 @@ def h_forpng1(img_src, img_mask):
     return img_ret
 
 
-path = "../1/"
+# TODO: 顺序
+path = "./img1/"
 for idx, file in enumerate(os.listdir(path)):
     # Load a random image from the images folder
     # file_names = next(os.walk(IMAGE_DIR))[2]
